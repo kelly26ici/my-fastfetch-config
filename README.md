@@ -14,19 +14,19 @@
 
 ---
 # Project Images
-![Project Image 3](https://raw.githubusercontent.com/menhoudj/my-fastfetch-config/main/Screenshot2.png)
+![Project Image 3](https://raw.githubusercontent.com/kelly26ici/my-fastfetch-config/main/Screenshot2.png)
 
 | | |
 |---|---|
-| ![](https://raw.githubusercontent.com/menhoudj/my-fastfetch-config/main/Screenshot%20From%202025-12-15%2015-39-10.png) | ![](https://raw.githubusercontent.com/menhoudj/my-fastfetch-config/main/Screenshot1.png) |
-| ![](https://raw.githubusercontent.com/menhoudj/my-fastfetch-config/main/Screenshot3.png) | ![](https://raw.githubusercontent.com/menhoudj/my-fastfetch-config/main/Screenshot4.png) |
+| ![](https://raw.githubusercontent.com/kelly26ici/my-fastfetch-config/main/Screenshot%20From%202025-12-15%2015-39-10.png) | ![](https://raw.githubusercontent.com/kelly26ici/my-fastfetch-config/main/Screenshot1.png) |
+| ![](https://raw.githubusercontent.com/kelly26ici/my-fastfetch-config/main/Screenshot3.png) | ![](https://raw.githubusercontent.com/kelly26ici/my-fastfetch-config/main/Screenshot4.png) |
 
 ---
 ## Installation
 
 1. Clone the project:
    ```bash
-    git clone https://github.com/menhoudj/my-fastfetch-config
+    git clone https://github.com/kelly26ici/my-fastfetch-config
     cd my-fastfetch-config
     chmod +x install.sh
     ./install.sh
