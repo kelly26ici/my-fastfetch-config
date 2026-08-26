@@ -1,129 +1,143 @@
-/*
-HyDE provides xdg/share/fastfetch/presets/hyde/*.config.jsonc files for different layouts. 
-You can also create your own config.jsonc file in the same directory to create a custom theme. 
-
-To test HyDE's fastfetch theme, run:
-fastfetch --config hyde/*.jsonc
-
-*/
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "source": "$HOME/.config/fastfetch/logos/e2637e12049342b31cf3c65b1cd461df.png",
-    "height": 18
+    "type": "kitty",
+    "source": "$HOME/.config/fastfetch/current_logo.png",
+    "width": 30,
+    "height": 18,
+    "preserveAspectRatio": true,
+    "padding": {
+      "top": 1,
+      "left": 2
+    }
   },
   "display": {
-    "separator": " : "
+    "separator": " 󰅂 ",
+    "brightColor": true,
+    "percent": {
+      "type": 3
+    },
+    "bar": {
+      "char": {
+        "elapsed": "█",
+        "total": "░"
+      },
+      "width": 20,
+      "border": {
+        "left": "[",
+        "right": "]"
+      }
+    }
   },
   "modules": [
     {
-      "type": "command",
-      "key": "  ",
-      "keyColor": "blue",
-      "text": "splash=$(hyprctl splash);echo $splash"
-    },
-    {
-      "type": "custom",
-      "format": "┌──────────────────────────────────────────┐"
-    },
-    {
-      "type": "chassis",
-      "key": "  󰇺 Chassis",
-      "format": "{1} {2~0,10}"
-    },
-    {
-      "type": "os",
-      "key": "  󰣇 OS",
-      "format": "{name} {arch}",
-      "keyColor": "red"
-    },
-    {
-      "type": "kernel",
-      "key": "   Kernel",
-      "format": "{2}",
-      "keyColor": "red"
-    },
-    {
-      "type": "packages",
-      "key": "  󰏗 Packages",
-      "format": "{pacman} (pacman), {flatpak-user} (flatpak)",
-      "keyColor": "green"
-    },
-    {
-      "type": "display",
-      "key": "  󰍹 Display",
-      "format": "{1}x{2} @ {3}Hz [{7}]",
-      "keyColor": "green"
-    },
-    {
-      "type": "terminal",
-      "key": "   Terminal",
-      "keyColor": "yellow"
-    },
-    {
-      "type": "wm",
-      "key": "  󱗃 WM",
-      "format": "{pretty-name} {version} ({protocol-name})",
-      "keyColor": "yellow"
-    },
-    {
-      "type": "custom",
-      "format": "└──────────────────────────────────────────┘"
+      "type": "title",
+      "format": "   {user-name} @ {host-name}",
+      "color": {
+        "user": "bright_cyan",
+        "at": "bright_white",
+        "host": "bright_blue"
+      }
     },
     "break",
     {
-      "type": "title",
-      "key": "  ",
-      "format": "{6} {7} {8}"
-    },
-    {
       "type": "custom",
-      "format": "┌──────────────────────────────────────────┐"
+      "format": "┌─ 󰣇 System Information",
+      "outputColor": "bright_blue"
     },
     {
-      "type": "cpu",
-      "format": "{1} @ {7}",
-      "key": "   CPU",
-      "keyColor": "blue"
+      "type": "os",
+      "key": "│ ├─ 󰣇 OS",
+      "keyColor": "bright_blue",
+      "format": "{name} {arch}"
     },
     {
-      "type": "gpu",
-      "format": "{name} [{type}]",
-      "key": "  󰊴 GPU",
-      "keyColor": "blue"
+      "type": "kernel",
+      "key": "│ ├─ 󰆜 Kernel",
+      "keyColor": "bright_blue",
+      "format": "{2}"
     },
     {
-      "type": "command",
-      "text": "glxinfo 2>/dev/null | grep 'OpenGL version' | sed 's/.*Mesa /amdgpu (Mesa /' | sed 's/-cachyos[0-9.]*/-cachyos)/' | awk '{print $1, $2, $3}'",
-      "key": "   GPU Driver",
-      "keyColor": "magenta"
+      "type": "packages",
+      "key": "│ ├─ 󰏗 Packages",
+      "keyColor": "bright_blue",
+      "format": "{pacman} (pacman)"
     },
     {
-      "type": "memory",
-      "key": "   Memory ",
-      "keyColor": "magenta"
+      "type": "wm",
+      "key": "│ ├─ 󱗃 Desktop",
+      "keyColor": "bright_blue",
+      "format": "{pretty-name} {version} ({protocol-name})"
     },
     {
-      "type": "command",
-      "key": "  󱦟 OS Age ",
-      "keyColor": "red",
-      "text": "bash -c 'DAYS=$(( ($(date +%s) - $(stat -c %W /)) / 86400 )); DATE=$(LC_TIME=C date -d @$(stat -c %W /) \"+%b %d, %Y\"); echo \"$DAYS days ($DATE)\"'"
+      "type": "terminal",
+      "key": "│ ├─ 󰞷 Terminal",
+      "keyColor": "bright_blue"
     },
     {
       "type": "uptime",
-      "key": "  󱫐 Uptime ",
-      "keyColor": "red"
+      "key": "│ └─ 󱦦 Uptime",
+      "keyColor": "bright_blue"
     },
+    "break",
     {
       "type": "custom",
-      "format": "└──────────────────────────────────────────┘"
+      "format": "┌─  Hardware Specifications",
+      "outputColor": "bright_green"
     },
+    {
+      "type": "host",
+      "key": "│ ├─ 󰇺 Host",
+      "keyColor": "bright_green"
+    },
+    {
+      "type": "cpu",
+      "key": "│ ├─  CPU",
+      "keyColor": "bright_green",
+      "format": "{1} @ {7}"
+    },
+    {
+      "type": "gpu",
+      "key": "│ ├─ 󰊴 GPU",
+      "keyColor": "bright_green",
+      "format": "{name} [{type}]"
+    },
+    {
+      "type": "opengl",
+      "key": "│ ├─ 󰡷 OpenGL",
+      "keyColor": "bright_green"
+    },
+    {
+      "type": "display",
+      "key": "│ └─ 󰍹 Display",
+      "keyColor": "bright_green",
+      "format": "{1}x{2} @ {3}Hz [{7}]"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "┌─ 󰉉 Storage",
+      "outputColor": "bright_magenta"
+    },
+    {
+      "type": "disk",
+      "key": "│ ├─ 󰉉 Disk (/)",
+      "keyColor": "bright_magenta",
+      "folders": "/",
+      "format": "{size-used} / {size-total} ({size-percentage}) - {size-free} free"
+    },
+    {
+      "type": "disk",
+      "key": "│ └─ 󰉉 Usage",
+      "keyColor": "bright_magenta",
+      "folders": "/",
+      "format": "{size-percentage-bar}"
+    },
+    "break",
     {
       "type": "colors",
       "paddingLeft": 2,
       "symbol": "circle"
-    },
-    "break"
+    }
   ]
 }
-
