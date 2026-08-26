@@ -1,0 +1,127 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "kitty",
+    "source": "$HOME/.config/fastfetch/current_logo.png",
+    "width": 18,
+    "height": 13,
+    "preserveAspectRatio": true,
+    "padding": {
+      "top": 1,
+      "left": 1
+    }
+  },
+  "display": {
+    "separator": " 󰅂 ",
+    "brightColor": true,
+    "percent": {
+      "type": 3
+    },
+    "bar": {
+      "char": {
+        "elapsed": "█",
+        "total": "░"
+      },
+      "width": 14,
+      "border": {
+        "left": "[",
+        "right": "]"
+      }
+    }
+  },
+  "modules": [
+    {
+      "type": "title",
+      "format": "   {user-name} @ {host-name}",
+      "color": {
+        "user": "bright_cyan",
+        "at": "bright_white",
+        "host": "bright_blue"
+      }
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "┌─ 󰣇 System",
+      "outputColor": "bright_blue"
+    },
+    {
+      "type": "os",
+      "key": "│ ├─ 󰣇 OS",
+      "keyColor": "bright_blue",
+      "format": "{name} {arch}"
+    },
+    {
+      "type": "kernel",
+      "key": "│ ├─ 󰆜 Kernel",
+      "keyColor": "bright_blue",
+      "format": "{2}"
+    },
+    {
+      "type": "wm",
+      "key": "│ ├─ 󱗃 Desktop",
+      "keyColor": "bright_blue",
+      "format": "{pretty-name}"
+    },
+    {
+      "type": "uptime",
+      "key": "│ └─ 󱦦 Uptime",
+      "keyColor": "bright_blue"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "┌─  Hardware",
+      "outputColor": "bright_green"
+    },
+    {
+      "type": "host",
+      "key": "│ ├─ 󰇺 Host",
+      "keyColor": "bright_green"
+    },
+    {
+      "type": "cpu",
+      "key": "│ ├─  CPU",
+      "keyColor": "bright_green",
+      "format": "{1}"
+    },
+    {
+      "type": "gpu",
+      "key": "│ ├─ 󰊴 GPU",
+      "keyColor": "bright_green",
+      "format": "{name}"
+    },
+    {
+      "type": "display",
+      "key": "│ └─ 󰍹 Display",
+      "keyColor": "bright_green",
+      "format": "{1}x{2} @ {3}Hz"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "┌─ 󰉉 Storage",
+      "outputColor": "bright_magenta"
+    },
+    {
+      "type": "disk",
+      "key": "│ ├─ 󰉉 Disk (/)",
+      "keyColor": "bright_magenta",
+      "folders": "/",
+      "format": "{size-used} / {size-total} ({size-percentage}) - {size-free} free"
+    },
+    {
+      "type": "disk",
+      "key": "│ └─ 󰉉 Usage",
+      "keyColor": "bright_magenta",
+      "folders": "/",
+      "format": "{size-percentage-bar}"
+    },
+    "break",
+    {
+      "type": "colors",
+      "paddingLeft": 1,
+      "symbol": "circle"
+    }
+  ]
+}
