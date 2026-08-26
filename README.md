@@ -1,43 +1,61 @@
 # MyFastFetch 🎌
 
-**MyFastFetch** is a simple and stylish terminal tool that displays a random anime image every time you run the `myfastfetch` command. Each run shows a different image! You can also customize logos and tweak settings to fit your personal "rice."
+A fastfetch configuration with responsive terminal-aware presets and random anime logo rotation.
 
 ---
 
 ## Features ✨
 
-- Shows a different random anime image on each run.
-- Allows adding custom logos to display with the images.
--If you want to modify config.jsonc, you will find a great and useful file in the Project folder move it to .config/fastfetch/
-- Lightweight and easy to use.
-- If you want to edit and add more logos, go to .config/fastfetch/logos
+- **Responsive layout** — adapts to terminal width (xs/sm/md/lg breakpoints)
+- **Random anime logo** — cycles through logos without repeating until all are used
+- **Kitty image protocol** — renders images directly in supported terminals
+- **Bright, colorful output** — neon-style system info with bars and colors
 
 ---
-# Project Images
-![Project Image 3](https://raw.githubusercontent.com/kelly26ici/my-fastfetch-config/main/Screenshot2.png)
 
-| | |
-|---|---|
-| ![](https://raw.githubusercontent.com/kelly26ici/my-fastfetch-config/main/Screenshot%20From%202025-12-15%2015-39-10.png) | ![](https://raw.githubusercontent.com/kelly26ici/my-fastfetch-config/main/Screenshot1.png) |
-| ![](https://raw.githubusercontent.com/kelly26ici/my-fastfetch-config/main/Screenshot3.png) | ![](https://raw.githubusercontent.com/kelly26ici/my-fastfetch-config/main/Screenshot4.png) |
+## Structure
+
+```
+~/.config/fastfetch/
+├── config.jsonc              # Default fastfetch config
+├── fastfetch-responsive.sh   # Responsive wrapper (detects terminal width)
+├── presets/
+│   ├── lg.jsonc              # Large terminals (120+ cols)
+│   ├── md.jsonc              # Medium terminals (95–119 cols)
+│   ├── sm.jsonc              # Small terminals (68–94 cols)
+│   └── xs.jsonc              # Tiny terminals (< 68 cols)
+├── logos/                    # 49 anime logo images
+├── used_logos.txt            # Tracks which logos have been shown
+└── current_logo.png          # Currently selected logo (generated at runtime)
+```
 
 ---
-## Installation
 
-1. Clone the project:
+## Setup
+
+1. Clone the repo:
    ```bash
-    git clone https://github.com/kelly26ici/my-fastfetch-config
-    cd my-fastfetch-config
-    chmod +x install.sh
-    ./install.sh
-    myfastfetch
+   git clone https://github.com/kelly26ici/my-fastfetch-config
+   cd my-fastfetch-config
+   ```
+
+2. Copy to your config directory:
+   ```bash
+   mkdir -p ~/.config/fastfetch
+   cp -r config.jsonc fastfetch-responsive.sh presets logos ~/.config/fastfetch/
+   ```
+
+3. Run:
+   ```bash
+   fastfetch --config ~/.config/fastfetch/fastfetch-responsive.sh
+   ```
+
 ---
- ## Terminal Suppot display image
 
- - kitty
- - Ghostty
- - iTerm2
- - Terminology
- - WezTerm
+## Supported Terminals
 
-
+- Kitty
+- Ghostty
+- iTerm2
+- WezTerm
+- Terminology
